@@ -15,7 +15,6 @@ function onFormSubmit(e) {
   let { delay, step, amount } = dataList;
 
   for (let i = 1; i <= amount; i += 1) {
-    delay += step;
     createPromise(i, delay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(
@@ -27,6 +26,7 @@ function onFormSubmit(e) {
           `❌ Rejected promise ${position} in ${delay}ms`
         );
       });
+    delay += step;
   }
 }
 

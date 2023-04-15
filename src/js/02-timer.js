@@ -44,9 +44,11 @@ function timerStart() {
     const startTime = new Date();
     const ms = selectedDate - startTime;
     refs.button.disabled = true;
+    refs.input.disabled = true;
 
     if (ms < 0) {
       clearInterval(timerId);
+      refs.input.disabled = false;
       return;
     }
     newTimerUpdate(convertMs(ms));
